@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Calculator</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: rgb(155, 135, 245);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px 20px;
+        font-size: 15px;
+    }
+
+    .brief h2 {
+        text-decoration: underline;
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .container {
+        border: 1px solid #cccccc;
+        box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+        border-radius: 20px;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        height: 400px;
+    }
+
+    .rem {
+        margin: 10px -8px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .div {
+        margin: 10px 40px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .mul {
+        margin: 10px 35px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .sub {
+        margin: 10px 35px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .add {
+        margin: 10px 30px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .point {
+        margin: 10px 45px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .equal {
+        margin: 10px 40px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .button {
+        margin: 10px 40px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        background-color: transparent;
+        font-size: 2rem;
+        color: #333;
+        background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+        text-shadow: 0 1px rgba(255, 255, 255, .4);
+    }
+
+    .button:hover {
+        background-color: #eaeaea;
+    }
+
+    .operator {
+        color: #fff;
+        background-color: #eebb24;
+    }
+
+    .clear {
+        background-color: #4f6af1;
+        border-color: #5291df;
+        color: #000;
+        width: 66px;
+        height: 33px;
+        margin: 15px -110px
+    }
+
+    .clear:hover {
+        background-color: #f78488;
+    }
+
+    .equal:hover {
+        background-color: #eaeaea;
+    }
+
+    .rem:hover {
+        background-color: #eaeaea;
+    }
+
+    .div:hover {
+        background-color: #eaeaea;
+    }
+
+    .mul:hover {
+        background-color: #eaeaea;
+    }
+
+    .sub:hover {
+        background-color: #eaeaea;
+    }
+
+    .add:hover {
+        background-color: #eaeaea;
+    }
+
+    .point:hover {
+        background-color: #eaeaea;
+    }
+
+    .screen {
+        background-color: rgb(165, 234, 243);
+        justify-content: left;
+        color: rgb(38, 0, 255);
+        font-size: 25px;
+        width: 50%;
+        height: 30%;
+        cursor: text;
+        margin: 25px 25px;
+    }
+</style>
+<script>
+    function display(val) {
+        document.getElementById('result').value += val;
+        return val;
+    }
+    function solve() {
+        let x = document.getElementById('result').value;
+        let y = eval(x);
+        document.getElementById('result').value = y;
+        return y;
+    }
+    function clearscreen() {
+        document.getElementById('result').value = '';
+    }
+</script>
+
+<body>
+    <div class="brief">
+        <h2>ARITHMETIC CALCULATOR</h2>
+        <p>~This is a simple arithmetic calculator that will compute addition, subtraction, multiplication, division and
+            remainder operations.</p>
+    </div>
+    <div class="contain">
+        <table>
+            <tr>
+                <td><input type="text" class="screen" id="result" style="text-align:right"></td>
+                <td><input type="button" value="C" onclick="clearscreen()" class="clear"></td>
+                <td><input type="button" value="%" class="rem" onclick="display('%')"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input type="button" value="7" class="button" onclick="display('7')"></td>
+                <td><input type="button" value="8" class="button" onclick="display('8')"></td>
+                <td><input type="button" value="9" class="button" onclick="display('9')"></td>
+                <td><input type="button" value="/" class="div" onclick="display('/')"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input type="button" value="4" class="button" onclick="display('4')"></td>
+                <td><input type="button" value="5" class="button" onclick="display('5')"></td>
+                <td><input type="button" value="6" class="button" onclick="display('6')"></td>
+                <td><input type="button" value="*" class="mul" onclick="display('*')"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input type="button" value="1" class="button" onclick="display('1')"></td>
+                <td><input type="button" value="2" class="button" onclick="display('2')"></td>
+                <td><input type="button" value="3" class="button" onclick="display('3')"></td>
+                <td><input type="button" value="-" class="sub" onclick="display('-')"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input type="button" value="0" class="button" onclick="display('0')"></td>
+                <td><input type="button" value="." class="point" onclick="display('.')"></td>
+                <td><input type="button" value="=" class="equal" onclick="solve()"></td>
+                <td><input type="button" value="+" class="add" onclick="display('+')"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
